@@ -1,0 +1,31 @@
+#
+# system.prop for u8510
+#
+
+rild.libpath=/system/lib/libril-qc-1.so
+rild.libargs=-d /dev/smd0
+net.ntp.server=time.windows.com
+net.ntp.server2=time.nist.gov
+net.ntp.time=0
+net.ntp.timereference=0
+ro.config.hwdrm=true
+ro.config.hwdrm.set_contact=false
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+DEVICE_PROVISIONED=1
+dalvik.vm.heapsize=26m
+media.stagefright.enable-http=false
+media.stagefright.enable-rtsp=false
+ro.config.userAgentCustomize=true
+ro.config.hw_addsettingsdbex=1
+ro.config.hw_opta=
+ro.config.hw_optb=
+ro.config.hw_always_allow_mms=true
+

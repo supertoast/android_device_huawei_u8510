@@ -6,7 +6,7 @@ $(warning device_8510.mk will executet)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_as_supl.mk)
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # proprietary side of the device
 $(call inherit-product-if-exists, vendor/huawei/u8510/device_u8510-vendor.mk)
@@ -59,7 +59,7 @@ PRODUCT_COPY_FILES += \
     vendor/$(MANUFACTURER)/$(DEVICE)/proprietary/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_COPY_FILES += \
-    vendor/$(MANUFACTURER)/$(DEVICE)/proprietary/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/$(MANUFACTURER)/$(DEVICE)/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -190,11 +190,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Don't put dexfiles in /cache
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-data-only=1
-
-# addon
-$(call inherit-product-if-exists, addon/addon.mk)
-# wifi
-$(call inherit-product-if-exists, device/huawei/c8650/wifi/wifi.mk)
 
 $(warning device_8510.mk finished)
 
