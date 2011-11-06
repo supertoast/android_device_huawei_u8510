@@ -39,11 +39,7 @@ We need Makefiles and other stuff for the device. Take it from the repository
 
     $ git clone git://github.com/supertoast/android_device_huawei_u8510.git u8510
 
-or download the tarball
-
-    https://github.com/supertoast/android_device_huawei_u8510/tarball/master
-
-    extract it to ~/android/system/devices/huawei/ and name the new directory u8510
+or download the tarball https://github.com/supertoast/android_device_huawei_u8510/tarball/master and extract it to ~/android/system/devices/huawei/ and name the new directory u8510
 
 Extract necessary binaries and proprietary files
 ------------------------------------------------
@@ -80,9 +76,9 @@ If the build was successful, you can now take the update zip found in out/target
 
 Before you syncing to the latest CM src remove the changes in vendor/cyanogen that was made from the script setup-makefiles.sh.
 
-   $ cd ~/android/system/vendor/cyanogen
+    $ cd ~/android/system/vendor/cyanogen
 
-   $ git reset --hard HEAD
+    $ git reset --hard HEAD
 
 When you want to rebuild with new changes or after syncing to the latest CM src make sure to do the following before you recompile.
 
