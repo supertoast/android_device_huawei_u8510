@@ -168,10 +168,6 @@ on post-fs
     chown system system /data/HWUserData/sd.img
     mount vfat loop@data/HWUserData/sd.img /HWUserData umask=0002,uid=1000,gid=1015,utf8
     
-    # whats this ?
-    chmod 0666 /dev/light
-    chmod 0666 /dev/proximity
-
 
     # Collect apanic data, free resources and re-arm trigger
     copy /proc/apanic_console /data/dontpanic/apanic_console
@@ -226,13 +222,6 @@ on post-fs
     mkdir /data/app 0771 system system
     mkdir /data/property 0700 root root
     mkdir /cache/download 0771 system cache
-    # qmuxd need this dir, is this huawei special ?
-    mkdir /data/radio 0770 radio radio
-#create  WIFI filesystem structure
-    # taken from huawei init.rc, not shure that we really need it if we use the wpa_supplicant from CM
-    mkdir /data/misc/wifi/sockets 0777 system system
-    mkdir /data/misc/wpa_supplicant 0777 system system
-    mkdir /data/misc/dhcp 0777 system system
 
     # whats this ? has it really to do with wifi ?
     mkdir /data/hwvefs 0777 root root
@@ -451,18 +440,12 @@ on boot
 
     class_start default
 
-    class_start default
-
     # taken from huawei init.rc not sure what it means
     # set media.stagefright.enable-player to false so that stagefright is not used
     setprop media.stagefright.enable-player false
 
 ## Daemon processes to be run by init.
 ##
-# taken from huawei init.rc, is it the right place for it ?
-chmod 0666 /dev/accel
-chmod 0666 /dev/compass_aot
-chmod 0666 /dev/compass_dev
 service ueventd /sbin/ueventd
     critical
 
@@ -514,9 +497,6 @@ service netd /system/bin/netd
     socket dnsproxyd stream 0660 root inet
 
 service debuggerd /system/bin/debuggerd
-
-# taken from huawei init.rc, not sure what this service do
-service qmuxd /system/bin/qmuxd
 
 # huwaei add special group qcom_oncrpc, whats this for ?
 service ril-daemon /system/bin/rild
@@ -617,61 +597,3 @@ service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
     oneshot
-
-service compassd /system/bin/compassd
-    disabled
-    oneshot
-
-service akm8975 /system/bin/akmd8975
-    disabled
-    oneshot
-
-service akm8962 /system/bin/akmd8962
-    disabled
-    oneshot
-
-service bcm_hciattach /system/bin/sh /system/etc/bluetooth/init.bcm.bt.sh
-    user bluetooth
-    group qcom_oncrpc bluetooth net_bt_admin system
-    disabled 
-    
-service chip_power_on /system/bin/sh /system/etc/bluetooth/init.bcm.chip_on.sh
-    user root
-    group system
-    disabled
-    oneshot 
-    
-service chip_power_off /system/bin/sh /system/etc/bluetooth/init.bcm.chip_off.sh
-    user root
-    group system
-    disabled
-    oneshot
-    
-service hci_dev_up /system/bin/hci_dev_state --dev_up
-    user root
-    group bluetooth system
-    disabled 
-    oneshot
-    
-service hci_dev_down /system/bin/hci_dev_state --dev_down
-    user root
-    group bluetooth system
-    disabled 
-    oneshot    
-
-service BtWiRfServer /system/xbin/RfTest
-    user root
-    group bluetooth net_bt_admin system  
-    disabled
-    oneshot
-
-service btld /system/bin/btld
-    user bluetooth system
-    group bluetooth net_bt_admin system
-    disabled 
-
-service callife /system/bin/callife
-    oneshot
-chmod 0777  /system/xbin/cplusw
-service  cplusw  /system/xbin/cplusw
-
