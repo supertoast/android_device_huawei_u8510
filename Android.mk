@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8510)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8510)
 include $(call all-named-subdir-makefiles, libaudio)
 endif

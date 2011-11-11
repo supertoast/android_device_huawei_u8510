@@ -1,4 +1,4 @@
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8510)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8510)
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
