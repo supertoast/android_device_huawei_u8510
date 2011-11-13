@@ -1159,6 +1159,7 @@ status_t AudioHardware::setFmOnOff(int onoff)
 
 status_t AudioHardware::setFmVolume(float v)
 {
+    LOGI("setFmVolume to %f", v);
 #if defined(HAVE_BCM_FM_RADIO) || defined(HAVE_TI_FM_RADIO)
 
 #ifdef WL1251
@@ -1181,7 +1182,7 @@ status_t AudioHardware::setFmVolume(float v)
     char volreg[100] = "hcitool cmd 0x3f 0x135 0x1c 0x02 0x00 ";
 #endif
 #ifdef HAVE_BCM_FM_RADIO
-    char volreg[100] = "hcitool cmd 0x3f 0xa 0x5 0xe0 0x41 0xf 0 ";
+    char volreg[100] = "hcitool cmd 0x3f 0x15 0xf8 0 ";
 #endif
 
     strcat(volreg, volhex);
@@ -1191,10 +1192,10 @@ status_t AudioHardware::setFmVolume(float v)
     system(volreg);
 #endif
 #ifdef HAVE_BCM_FM_RADIO
-    strcat(volreg, "0 0 0");
+//    strcat(volreg, "0 0 0");
 
-    system("hcitool cmd 0x3f 0xa 0x5 0xc0 0x41 0xf 0 0x20 0 0 0");
-    system("hcitool cmd 0x3f 0xa 0x5 0xe4 0x41 0xf 0 0x00 0 0 0");
+//    system("hcitool cmd 0x3f 0xa 0x5 0xc0 0x41 0xf 0 0x20 0 0 0");
+//    system("hcitool cmd 0x3f 0xa 0x5 0xe4 0x41 0xf 0 0x00 0 0 0");
     system(volreg);
 #endif
 
@@ -1273,7 +1274,7 @@ status_t AudioHardware::doAudioRouteOrMute(uint32_t device)
         mute = !mBuiltinMicSelected;
     }
 #ifdef HAVE_FM_RADIO
-    if(mFmRadioEnabled && (device == SND_DEVICE_FM_HEADSET)) {
+    if(mFmRadioEnabled && ((device == SND_DEVICE_FM_HEADSET) || (device == SND_DEVICE_FM_SPEAKER))) {
       mute = 0;
       LOGI("unmute for radio");
     }

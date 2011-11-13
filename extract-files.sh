@@ -57,6 +57,7 @@ adb pull system/wifi/iwpriv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wi
 adb pull system/wifi/nvram.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wifi/nvram.txt
 adb pull system/wifi/udp_server ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wifi/udp_server
 
+adb pull system/lib/libaudioeq.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/libaudioeq.so
 adb pull system/lib/libril-qc-1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/libril-qc-1.so
 adb pull system/lib/libril-qcril-hook-oem.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/libril-qcril-hook-oem.so
 adb pull system/lib/libgsl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/libgsl.so

@@ -76,6 +76,7 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libdss.so:system/lib/libdss.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libauth.so:system/lib/libauth.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gps.default.so:system/lib/hw/gps.default.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \\
 
 # Camera
 PRODUCT_COPY_FILES += \\
