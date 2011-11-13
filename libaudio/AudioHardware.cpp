@@ -135,6 +135,8 @@ AudioHardware::AudioHardware() :
                 CHECK_FOR(TTY_HEADSET);
                 CHECK_FOR(TTY_HCO);
                 CHECK_FOR(TTY_VCO);
+                CHECK_FOR(FM_HEADSET);
+                CHECK_FOR(FM_SPEAKER);
 #undef CHECK_FOR
             }
         }
@@ -1271,7 +1273,7 @@ status_t AudioHardware::doAudioRouteOrMute(uint32_t device)
         mute = !mBuiltinMicSelected;
     }
 #ifdef HAVE_FM_RADIO
-    if(mFmRadioEnabled && (device == SND_DEVICE_HEADSET)) {
+    if(mFmRadioEnabled && (device == SND_DEVICE_FM_HEADSET)) {
       mute = 0;
       LOGI("unmute for radio");
     }
