@@ -35,7 +35,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVidEnc \
     dexpreopt \
-    gps.u8510
+    gps.u8510 \
+    FM
 
 DISABLE_DEXPREOPT := false
 
