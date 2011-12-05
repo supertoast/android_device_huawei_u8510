@@ -181,6 +181,10 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.config.hw_set_default_home=true \
     ro.config.AM_PM_STYLE=1
 
+# this is essential for USB tethering
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.tethering.kb_disconnect=1
+
 #    persist.sys.powerup_reason=
 #    persist.sys.user_set_airplane=
 
