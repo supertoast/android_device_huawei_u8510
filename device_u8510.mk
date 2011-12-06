@@ -190,11 +190,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perfomance tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.execution-mode=int:jit \
-
-# Don't put dexfiles in /cache
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dexopt-data-only=1
+    dalvik.vm.execution-mode=int:jit
 
 $(warning device_8510.mk finished)
 
