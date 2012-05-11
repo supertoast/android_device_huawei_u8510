@@ -228,25 +228,12 @@ PRODUCT_BRAND := Huawei
 PRODUCT_DEVICE := u8510
 PRODUCT_MODEL := U8510
 PRODUCT_MANUFACTURER := HUAWEI
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_DEVICE=hwu8510 PRODUCT_NAME=U8510 BUILD_ID=stone BUILD_DISPLAY_ID=stone-alpha_v1 BUILD_FINGERPRINT=Huawei/U8510/hwu8510:2.3.3/HuaweiU8510/C169B831:user/ota-rel-keys,release-keys
 
+PRODUCT_RELEASE_NAME := U8510
+PRODUCT_VERSION_DEVICE_SPECIFIC :=
+-include vendor/cyanogen/products/common_versions.mk
 
-#
-# Set ro.modversion
-#
-
-ifdef CYANOGEN_NIGHTLY
-    PRODUCT_PROPERTY_OVERRIDES += \\
-        ro.modversion=CM7.1.0-__DEVICE__-Nightly\$(shell date +%m%d%Y)
-else
-    ifdef CYANOGEN_RELEASE
-        PRODUCT_PROPERTY_OVERRIDES += \\
-            ro.modversion=CM-7.1.0-__DEVICE__
-    else
-        PRODUCT_PROPERTY_OVERRIDES += \\
-            ro.modversion=CM7.1.0-KANG-__DEVICE__
-    endif
-endif
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_DEVICE=hwu8510 PRODUCT_NAME=U8510 BUILD_ID=supertoast BUILD_DISPLAY_ID=supertoast BUILD_FINGERPRINT=Huawei/U8510/hwu8510:2.3.3/HuaweiU8510/C169B831:user/ota-rel-keys,release-keys
 
 #
 # Copy legend specific prebuilt files
