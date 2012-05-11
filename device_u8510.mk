@@ -56,8 +56,8 @@ PRODUCT_COPY_FILES += \
     device/$(MANUFACTURER)/$(DEVICE)/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
 
 # apns-conf.xml
-PRODUCT_COPY_FILES += \
-    vendor/$(MANUFACTURER)/$(DEVICE)/proprietary/etc/apns-conf.xml:system/etc/apns-conf.xml
+#PRODUCT_COPY_FILES += \
+#    vendor/$(MANUFACTURER)/$(DEVICE)/proprietary/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_COPY_FILES += \
     device/$(MANUFACTURER)/$(DEVICE)/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
