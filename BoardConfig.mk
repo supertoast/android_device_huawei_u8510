@@ -94,3 +94,6 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/huawei/u8510/recovery/recovery_u
 # recovery
 TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8510/recovery/prebuild/recovery_kernel
 
+#twr
+DEVICE_RESOLUTION := 320x480
+
